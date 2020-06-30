@@ -1,4 +1,4 @@
-package com.trendyol.interview.model;
+package com.interview.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.Data;
 public class Coupon {
 
   private Integer minPurchaseAmount;
-  private Integer discount;
+  private Double discount;
   private DiscountType discountType;
 
 }

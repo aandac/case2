@@ -1,12 +1,12 @@
-package com.trendyol.interview;
+package com.interview;
 
-import com.trendyol.interview.business.DeliveryCostCalculator;
-import com.trendyol.interview.business.ShoppingCart;
-import com.trendyol.interview.model.Campaign;
-import com.trendyol.interview.model.Category;
-import com.trendyol.interview.model.Coupon;
-import com.trendyol.interview.model.DiscountType;
-import com.trendyol.interview.model.Product;
+import com.interview.business.DeliveryCostCalculator;
+import com.interview.business.ShoppingCart;
+import com.interview.model.DiscountType;
+import com.interview.model.Product;
+import com.interview.model.Campaign;
+import com.interview.model.Category;
+import com.interview.model.Coupon;
 
 public class ECommerceRunner {
 
@@ -14,8 +14,11 @@ public class ECommerceRunner {
     Category food = new Category("food");
     Product apple = new Product("Apple", 100.0, food);
     Product almond = new Product("Almond", 150.0, food);
+    Product orange = new Product("Orange", 90.0, food);
 
-    ShoppingCart cart = new ShoppingCart();
+    DeliveryCostCalculator deliveryCostCalculator = new DeliveryCostCalculator(1.0, 1.0, 2.99);
+    ShoppingCart cart = new ShoppingCart(deliveryCostCalculator);
+
     cart.addItem(apple, 3);
     cart.addItem(almond, 1);
 
@@ -25,11 +28,10 @@ public class ECommerceRunner {
 
     cart.applyDiscounts(campaign1, campaign2, campaign3);
 
-    Coupon coupon = new Coupon(100, 10, DiscountType.Rate);
+    Coupon coupon = new Coupon(100, 10.0, DiscountType.Rate);
     cart.applyCoupon(coupon);
 
     cart.print();
-
   }
 
 }

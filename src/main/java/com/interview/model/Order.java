@@ -1,4 +1,4 @@
-package com.trendyol.interview.model;
+package com.interview.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
