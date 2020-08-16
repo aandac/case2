@@ -73,8 +73,8 @@ public class CartManagerImpl implements CartManager {
         Map<Category, List<CartItem>> groupedProducts = cartItems.stream()
                 .collect(Collectors.groupingBy(item -> item.getProduct().getCategory()));
 
-        builder.append(String.format("%-12s \t%-12s \t%12s \t%12s \t%12s \t%12s\n", "Category", "Product Name",
-                "Quantity", "Unit Price", "Total Price", "Total Discount"));
+        builder.append(String.format("%-12s \t%-12s \t%12s \t%12s \t%12s\n", "Category", "Product Name",
+                "Quantity", "Unit Price", "Total Price"));
 
         for (Category category : groupedProducts.keySet()) {
             List<CartItem> cartItems = groupedProducts.get(category);
